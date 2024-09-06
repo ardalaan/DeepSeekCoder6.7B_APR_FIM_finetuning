@@ -1,0 +1,43 @@
+CUDA_VISIBLE_DEVICES=0 WANDB_PROJECT=deepseek_apr python train.py \
+--seed 11 \
+--model_name_or_path "deepseek-ai/deepseek-coder-6.7b-base" \
+--dataset_name \
+--splits \
+--max_seq_len 2048 \
+--max_steps 2000 \
+--save_steps 500 \
+--eval_steps 100 \
+--logging_steps 5 \
+--log_level "info" \
+--logging_strategy "steps" \
+--evaluation_strategy "steps" \
+--save_strategy "steps" \
+--push_to_hub True\
+--hub_private_repo True \
+--hub_strategy "every_save" \
+--bf16 True \
+--learning_rate 2e-4 \
+--lr_scheduler_type "cosine" \
+--weight_decay 0.1 \
+--warmup_ratio 0.1 \
+--max_grad_norm 1.0 \
+--output_dir "DeepSeekCoder_6.7B_APR_FIM_finetuning" \
+--per_device_train_batch_size 16 \
+--per_device_eval_batch_size 16 \
+--gradient_accumulation_steps 4 \
+--gradient_checkpointing True \
+--use_reentrant True \
+--dataset_text_field "prefix" \
+--test_size 0.1 \
+--fim_rate 0.9 \
+--fim_spm_rate 0.5 \
+--use_peft_lora True \
+--lora_r 16 \
+--lora_alpha 16 \
+--lora_dropout 0.1 \
+--lora_target_modules "q_proj,k_proj,v_proj,o_proj,down_proj,up_proj,gate_proj" \
+--use_4bit_quantization True \
+--use_nested_quant True \
+--bnb_4bit_compute_dtype "bfloat16" \
+--use_flash_attn True \
+--use_unsloth True
