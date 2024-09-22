@@ -66,3 +66,5 @@ for func in funcs:
     print(f"base PSM inference:\n{psm_completion}\n----------\nbase SPM inference:\n{spm_completion}\n----------")
     psm_completion, spm_completion = get_base_code_completion(func["prefix"], func["suffix"])
     print(f"PSM inference:\n{psm_completion}\n----------\nSPM inference:\n{spm_completion}\n----------")
+    psm_completion, spm_completion = get_base_code_completion(func["alt_prefix"], func["suffix"])
+    print(f"alt PSM inference:\n{psm_completion}\n----------\nalt SPM inference:\n{spm_completion}\n----------")
