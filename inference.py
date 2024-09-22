@@ -1,6 +1,7 @@
 from peft import PeftModel
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
+from bench_funcs import funcs
 
 # load the original model first
 MODEL = "deepseek-ai/deepseek-coder-6.7b-base"
@@ -36,11 +37,11 @@ base_model = AutoModelForCausalLM.from_pretrained(
 
 
 def infer(text):
-    MODEL.eval()
-    outputs = MODEL.generate(
+    base_model.eval()
+    outputs = base_model.generate(
         input_ids=tokenizer(text, return_tensors="pt").input_ids.cuda(),
         max_new_tokens=256,
-        num_return_sequences=10,
+        # num_return_sequences=10,
         temperature=0.2,
         top_k=50,
         top_p=0.95,
@@ -53,18 +54,15 @@ def infer(text):
 def get_base_code_completion(prefix, suffix):
     psm_text = f"""<｜fim▁begin｜>{prefix}<｜fim▁hole｜>{suffix}<｜fim▁end｜>"""
     spm_text = f"""<｜fim▁begin｜><｜fim▁hole｜>{suffix}<｜fim▁end｜>{prefix}"""
-    psm_output = infer(psm_text)
-    spm_output = infer(spm_text)
+    psm_inference = infer(psm_text)
+    psm_output = prefix + psm_inference.partition("<｜fim▁end｜>")[-1] + suffix
+    spm_inference = infer(spm_text)
+    spm_output = prefix + spm_inference.partition(prefix)[-1] + suffix
     return psm_output, spm_output
 
 
-prefix = """public class ADD {
-    public static int add(int x, int y) {
-// buggy code
-//        return x | y;"""
-suffix = """
-    }
-}"""
-psm_completion, spm_completion = get_base_code_completion(prefix, suffix)
-print(f"PSM inference:\n{psm_completion}\n----------\nSPM_inference:\n{spm_completion}")
-
+for func in funcs:
+    psm_completion, spm_completion = get_base_code_completion(func["original_prefix"], func["suffix"])
+    print(f"base PSM inference:\n{psm_completion}\n----------\nbase SPM inference:\n{spm_completion}\n----------")
+    psm_completion, spm_completion = get_base_code_completion(func["prefix"], func["suffix"])
+    print(f"PSM inference:\n{psm_completion}\n----------\nSPM inference:\n{spm_completion}\n----------")

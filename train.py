@@ -204,8 +204,7 @@ class ConstantLengthDataset(IterableDataset):
             buffer_middle, buffer_len_middle = [], 0
             buffer_suffix, buffer_len_suffix = [], 0
             while True:
-                if buffer_len_prefix >= self.max_buffer_size or buffer_len_middle >= self.max_buffer_size \
-                        or buffer_len_suffix >= self.max_buffer_size:
+                if max(buffer_len_prefix, buffer_len_middle, buffer_len_suffix) >= self.max_buffer_size:
                     break
                 try:
                     next_entry = next(iterator)
