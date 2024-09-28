@@ -204,7 +204,7 @@ class ConstantLengthDataset(IterableDataset):
             buffer_middle, buffer_len_middle = [], 0
             buffer_suffix, buffer_len_suffix = [], 0
             while True:
-                if max(buffer_len_prefix, buffer_len_middle, buffer_len_suffix) >= self.max_buffer_size:
+                if buffer_len_prefix + buffer_len_middle + buffer_len_suffix >= self.max_buffer_size:
                     break
                 try:
                     next_entry = next(iterator)
@@ -253,7 +253,7 @@ class ConstantLengthDataset(IterableDataset):
                 all_token_ids.extend(tokenized_input + [self.concat_token_id])
             examples = []
             for i in range(0, len(all_token_ids), self.seq_length):
-                input_ids = all_token_ids[i : i + self.seq_length]
+                input_ids = all_token_ids[i: i + self.seq_length]
                 if len(input_ids) == self.seq_length:
                     examples.append(input_ids)
             if self.shuffle:
