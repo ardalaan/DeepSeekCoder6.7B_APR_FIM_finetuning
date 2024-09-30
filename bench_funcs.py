@@ -1,16 +1,17 @@
-funcs = [{"prefix":
-             """public class ADD {
+funcs = [
+    {"prefix":
+     """public class ADD {
     public static int add(int x, int y) {
 // buggy code
 //        return x | y;    
         """,
-         "suffix":
-             """
+     "suffix":
+     """
     }
 }
 """},
-        {"prefix":
-         """public class ADD_ELEMENTS {
+    {"prefix":
+     """public class ADD_ELEMENTS {
     public static int add_elements(ArrayList<Integer> arr, int k) {
         int result = 0;
         for(int i = 0; i < k; i++) {
@@ -18,23 +19,23 @@ funcs = [{"prefix":
 //            if(Integer.toString(arr.get(i)).length() >= 2) {
 //                result -= arr.get(i);
             """,
-         "suffix":
-         """
+     "suffix":
+     """
             }
         }
         return result;
     }
 }
 """},
-        {"prefix":
-         """public class ADD_EVEN_AT_ODD {
+    {"prefix":
+     """public class ADD_EVEN_AT_ODD {
     public static int add_even_at_odd(int[] lst) {
         int sum = 0;
 // buggy code
 //        for (int i = 0; i < lst.length; i += 1) {
         """,
-         "suffix":
-         """
+     "suffix":
+     """
             if (lst[i] % 2 == 0)
                 sum += lst[i];
         }
@@ -42,8 +43,8 @@ funcs = [{"prefix":
     }
 }
 """},
-        {"prefix":
-         """public class ALL_PREFIXES {
+    {"prefix":
+     """public class ALL_PREFIXES {
     public static List<String> all_prefixes(String string){
         List<String> result = new ArrayList<String>();
 
@@ -51,16 +52,16 @@ funcs = [{"prefix":
 // buggy code
 //            result.add(string.substring(i + 1));
             """,
-         "suffix":
-         """
+     "suffix":
+     """
         }
 
         return result;
     }
 }
 """},
-        {"prefix":
-         """public class ANTI_SHUFFLE {
+    {"prefix":
+     """public class ANTI_SHUFFLE {
     public static String anti_shuffle(String s) {
         String result = "";
         for (String str : s.split(" ")) {
@@ -71,27 +72,125 @@ funcs = [{"prefix":
 //        }
 //        return result;
             """,
-         "suffix":
-         """
+     "suffix":
+     """
     }
 }
 """},
-        {"prefix":
-         """public class ANY_INT {
+    {"prefix":
+     """public class ANY_INT {
     public static boolean any_int(double x, double y, double z) {
 // buggy code
 //        if ((int)x == x && (int)y == y) {
 //            if (x + y == z || x + z == y)
         """,
-         "suffix":
-         """
+     "suffix":
+     """
                 return true;
         }
         return false;
     }
 }
 """}
-        ]
+]
+    # {"prefix":
+    #  """""",
+    #  "suffix":
+    #  """"""},
+# funcs = [{"prefix":
+#              """public class ADD {
+#     public static int add(int x, int y) {
+# // buggy code
+# //        return x | y;
+#         """,
+#          "suffix":
+#              """
+#     }
+# }
+# """},
+#         {"prefix":
+#          """public class ADD_ELEMENTS {
+#     public static int add_elements(ArrayList<Integer> arr, int k) {
+#         int result = 0;
+#         for(int i = 0; i < k; i++) {
+# // buggy code
+# //            if(Integer.toString(arr.get(i)).length() >= 2) {
+# //                result -= arr.get(i);
+#             """,
+#          "suffix":
+#          """
+#             }
+#         }
+#         return result;
+#     }
+# }
+# """},
+#         {"prefix":
+#          """public class ADD_EVEN_AT_ODD {
+#     public static int add_even_at_odd(int[] lst) {
+#         int sum = 0;
+# // buggy code
+# //        for (int i = 0; i < lst.length; i += 1) {
+#         """,
+#          "suffix":
+#          """
+#             if (lst[i] % 2 == 0)
+#                 sum += lst[i];
+#         }
+#         return sum;
+#     }
+# }
+# """},
+#         {"prefix":
+#          """public class ALL_PREFIXES {
+#     public static List<String> all_prefixes(String string){
+#         List<String> result = new ArrayList<String>();
+#
+#         for (int i = 0; i < string.length(); i += 1){
+# // buggy code
+# //            result.add(string.substring(i + 1));
+#             """,
+#          "suffix":
+#          """
+#         }
+#
+#         return result;
+#     }
+# }
+# """},
+#         {"prefix":
+#          """public class ANTI_SHUFFLE {
+#     public static String anti_shuffle(String s) {
+#         String result = "";
+#         for (String str : s.split(" ")) {
+#             char[] chars = str.toCharArray();
+#             Arrays.sort(chars);
+# // buggy code
+# //            result += new String(chars);
+# //        }
+# //        return result;
+#             """,
+#          "suffix":
+#          """
+#     }
+# }
+# """},
+#         {"prefix":
+#          """public class ANY_INT {
+#     public static boolean any_int(double x, double y, double z) {
+# // buggy code
+# //        if ((int)x == x && (int)y == y) {
+# //            if (x + y == z || x + z == y)
+#         """,
+#          "suffix":
+#          """
+#                 return true;
+#         }
+#         return false;
+#     }
+# }
+# """}
+#         ]
 
 # {"prefix":
 #      """""",
