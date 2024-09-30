@@ -251,7 +251,7 @@ class ConstantLengthDataset(IterableDataset):
 
 
 def unify_dataset_columns(sample):
-    text = sample["input"] + sample["output"]
+    text = sample["input"].lstrip('\n').rstrip() + '\n' + sample["output"].lstrip('\n').rstrip() + '\n'
     return {"text": text}
 
 

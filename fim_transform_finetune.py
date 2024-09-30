@@ -268,9 +268,9 @@ class ConstantLengthDataset(IterableDataset):
 
 def divide_affixes(sample):
     prefix, suffix = sample["input"].split("<FILL_ME>")
-    prefix = prefix.rstrip()
-    middle = "\n" + sample["output"]
-    middle = middle.rstrip()
+    prefix = prefix.lstrip('\n').rstrip() + '\n'
+    middle = sample["output"].lstrip('\n').rstrip() + '\n'
+    suffix = suffix.lstrip('\n').rstrip() + '\n'
     return {"prefix": prefix, "middle": middle, "suffix": suffix}
 
 
