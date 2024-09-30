@@ -63,15 +63,18 @@ def set_adapter(peft_model_id):
 
 
 model = base_model
-# model = set_adapter("ardalaaan/deepseek-coder-6.7b-base-APR-FIM-finetuning")
 for func in funcs:
-    # psm_completion, spm_completion = get_code_completion(func["original_prefix"], func["suffix"])
-    # print(f"base PSM inference:\n{psm_completion}\n----------\nbase SPM inference:\n{spm_completion}\n----------")
+    psm_completion, spm_completion = get_code_completion_fim_transform(func["original_prefix"], func["suffix"])
+    print(f"base PSM inference:\n{psm_completion}\n----------\nbase SPM inference:\n{spm_completion}\n----------")
+
+
+model = set_adapter("ardalaaan/deepseek-coder-6.7b-base-APR-FIM-finetuning")
+for func in funcs:
     psm_completion, spm_completion = get_code_completion_fim_transform(func["prefix"], func["suffix"])
     print(f"PSM inference:\n{psm_completion}\n----------\nSPM inference:\n{spm_completion}\n----------")
 
 
-# model = set_adapter("ardalaaan/deepseek-coder-6.7b-base-APR-finetuning")
+model = set_adapter("ardalaaan/deepseek-coder-6.7b-base-APR-finetuning")
 for func in funcs:
     blank_infilling_completion = get_code_completion_non_transform(func["prefix"], func["suffix"])
     print(f"blank infilling inference:\n{blank_infilling_completion}\n----------")
