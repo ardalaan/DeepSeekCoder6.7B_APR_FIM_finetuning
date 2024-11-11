@@ -21,5 +21,5 @@ Code in fim_transform_finetune.py and fim.py files was largely adapted from LLM 
 [5] Hu, E.J. et al. 2021. LORA: Low-Rank adaptation of Large Language Models. arXiv (Cornell University). (Jan. 2021). DOI:https://doi.org/10.48550/arxiv.2106.09685. \
 [6] Rozière, B. et al. 2023. Code llama: Open Foundation Models for code. arXiv (Cornell University). (Jan. 2023). DOI:https://doi.org/10.48550/arxiv.2308.12950. \
 [7] Gong, L. et al. 2024. Evaluation of LLMs on Syntax-Aware Code Fill-in-the-Middle tasks. arXiv (Cornell University). (Mar. 2024). DOI:https://doi.org/10.48550/arxiv.2403.04814. \
-[8] Bavarian, M. et al. 2022. Efficient training of language models to fill in the middle. arXiv (Cornell University). (Jan. 2022). DOI:https://doi.org/10.48550/arxiv.2207.14255.
+[8] Bavarian, M. et al. 2022. Efficient training of language models to fill in the middle. arXiv (Cornell University). (Jan. 2022). DOI:https://doi.org/10.48550/arxiv.2207.14255. \
 [9] https://github.com/pacman100/LLM-Workshop
