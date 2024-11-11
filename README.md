@@ -1,6 +1,6 @@
 Fine-tuned model is available via huggingface:\
 https://huggingface.co/ardalaaan/deepseek-coder-6.7b-base-APR-FIM-finetuning \
-Emergant code language models have shown superior performance in code-related tasks such as code and documentation generation, fault localization, automated program repair (APR) and many others.\\
+Emergant code language models have shown superior performance in code-related tasks such as code and documentation generation, fault localization, automated program repair (APR) and many others.\
 In this project, DeepSeek-Coder-6.7B-base language model has been fine-tuned on Megadiff dataset with infilling objective, particularly for improving the model’s performance in automated program repair task.\
 This work is meant to follow and improve the work done in RepairLlama paper. RepairLlama uses a parameter-efficient fine-tuning technique called LoRA for fine-tuning CodeLlama-7B-base on a dataset consisting of pairs of buggy functions and their corresponding correct patches.\
 RepairLlama reasons that in practice the faulty region of the code could be detected by existing fault localization methods and thus so-called fault localization signals could be provided to the model by commenting out the buggy lines where the bug rests and keeping them in the input function fed to the model. By subsequently asking the model to fill in the blank caused by the commented lines, it learns to take advantage of the provided comments to generate a candidate patch more effectively.\
