@@ -1,4 +1,4 @@
-Fine-tuned model is available via huggingface:
+Fine-tuned model is available via huggingface:\
 https://huggingface.co/ardalaaan/deepseek-coder-6.7b-base-APR-FIM-finetuning
 Emergant code language models have shown superior performance in code-related tasks such as code and documentation generation, fault localization, automated program repair (APR) and many others.
 In this project, DeepSeek-Coder-6.7B-base language model has been fine-tuned on Megadiff dataset with infilling objective, particularly for improving the model’s performance in automated program repair task.
