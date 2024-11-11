@@ -13,7 +13,7 @@ FIM transformation introduces two hyperparameters, namely FIM rate and PSM rate.
 Fine-tuning was operated through Unsloth library which enabled the computation to be processed on a single NVIDIA H100 SXM GPU with optimiezed memory and time consumption and automated hyperparameter adjustment.\
 HumanEval Java was chosen as the benchmark, since it suffers from less data leakage than its counterparts due to being released more recently.\
 Benchmark results for the base and fine-tuned model don’t show any meaningful difference between them. Also another fine-tuned model was trained with the only difference of not performing FIM transformation (similar to RepairLlama) as a reference point for comparing the performance of the fine-tuned models in APR benchmarks. Alas, this model was barely able to generate any compilable patches for the benchmark buggy functions. This is most probably due to my lack of understanding of what I am doing and not the deficiency of RepairLlama’s proposed fine-tuning method.\
-Code in fim_transform_finetune.py and fim.py files was largely adapted from LLM workshop github repository and subsequently modified as described above.\
+Code in fim_transform_finetune.py and fim.py files was largely adapted from LLM workshop github repository [9] and subsequently modified as described above.\
 [1] Zhang, Q. et al. 2023. A survey on large language models for Software engineering. arXiv (Cornell University). (Jan. 2023). DOI:https://doi.org/10.48550/arxiv.2312.15223. \
 [2] Guo, D. et al. 2024. DeepSeek-Coder: When the large language model meets programming -- the rise of code intelligence. arXiv (Cornell University). (Jan. 2024). DOI:https://doi.org/10.48550/arxiv.2401.14196. \
 [3] Monperrus, M. et al. 2021. MegaDiff: A dataset of 600k Java source code changes categorized by diff size. arXiv (Cornell University). (Jan. 2021). DOI:https://doi.org/10.48550/arxiv.2108.04631. \
@@ -22,3 +22,4 @@ Code in fim_transform_finetune.py and fim.py files was largely adapted from LLM 
 [6] Rozière, B. et al. 2023. Code llama: Open Foundation Models for code. arXiv (Cornell University). (Jan. 2023). DOI:https://doi.org/10.48550/arxiv.2308.12950. \
 [7] Gong, L. et al. 2024. Evaluation of LLMs on Syntax-Aware Code Fill-in-the-Middle tasks. arXiv (Cornell University). (Mar. 2024). DOI:https://doi.org/10.48550/arxiv.2403.04814. \
 [8] Bavarian, M. et al. 2022. Efficient training of language models to fill in the middle. arXiv (Cornell University). (Jan. 2022). DOI:https://doi.org/10.48550/arxiv.2207.14255.
+[9] https://github.com/pacman100/LLM-Workshop
